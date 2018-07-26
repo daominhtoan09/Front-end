@@ -1,0 +1,9 @@
+header {
+    height: 50px;
+    width: 500px;
+    font-size: 20px;
+    background: gray;
+    text-anchor: middle;
+    color: aqua;
+    text-align: center;
+}
