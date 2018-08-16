@@ -1,0 +1,49 @@
+*
+{
+    margin: 0px;
+    height: auto;
+    width: auto;
+}
+.header
+{
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+}
+.topnav
+{
+    overflow: hidden;
+    background-color: black;
+
+}
+.topnav a{
+    float: left;
+    display: block;
+    color: azure;
+    text-align: center;
+    padding: 14px 16px 14px 16px;
+    text-decoration: none;
+}
+.topnav a:hover
+{
+    background-color: gray;
+    color: black;
+}
+.row
+{
+    
+    box-sizing: border-box;
+}
+.row .column
+{
+
+    width: 30%;
+    padding: 15px;
+    float: left;
+}
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
