@@ -1,0 +1,7 @@
+Bước 1: Copy file IEEE_Reference.XSL vào thư mục
+C:\Program Files\Microsoft Office\Office 12\Bibliography\Style
+hoặc
+C:\Program Files (x86)\Microsoft Office\Office 12\Bibliography\Style
+Phiên bản của Office có thể khác nhau nên địa chỉ có thể không phải là Office 12 mà là Office 13, Office 16,... Tuỳ vào trường hợp cụ thể mà chọn thư mục phù hợp.
+Bước 2: Restart Microsoft Word nếu đang mở
+Bước 3: Mở thanh Ribbon "References", tìm "Style:", nếu trong danh sách đã có IEEE là đã cài đặt thành công
