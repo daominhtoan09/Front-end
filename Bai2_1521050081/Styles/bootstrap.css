@@ -6215,6 +6215,7 @@ button.close {
     color: #fff;
     text-align: center;
     opacity: 0.5;
+    background: transparent;
 }
 
 .carousel-control-prev:hover,
@@ -6272,13 +6273,17 @@ button.close {
     position: relative;
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
-    width: 30px;
-    height: 3px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
     margin-right: 3px;
     margin-left: 3px;
     text-indent: -999px;
     cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.5);
+    
+    background: transparent;
+    opacity: 0.2;
+    
 }
 
 .carousel-indicators li::before {

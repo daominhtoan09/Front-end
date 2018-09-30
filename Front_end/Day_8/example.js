@@ -222,23 +222,90 @@ function mg() {
 
 function t1() {
 
-    var dayso = ["1", "5","5", "9"];
+    var dayso = ["1", "5", "5", "9"];
     var n = parseInt(prompt("Nhap So Can Xoa"));
-    for (let i =0 ;i<dayso.length;i++)
-    {
-        if(parseInt(dayso[i]) == n)
-        {
-            dayso.splice(i,2);
+    for (let i = 0; i < dayso.length; i++) {
+        if (parseInt(dayso[i]) == n) {
+            dayso.splice(i, 2);
         }
     }
-  
-    dayso.forEach(function(items) 
-    {
-        console.log(items);
-        
-    });
-   
 
+    dayso.forEach(function (items) {
+        console.log(items);
+
+    });
+
+
+}
+function fTutorial() {
+    var myVar = 100;
+    function whoIsThis() {
+
+        alert(this.myVar);
+    }
+
+    var obj1 = { myVar: 200, w: whoIsThis };
+    var obj2 = { myVar: 300, w: whoIsThis };
+
+
+    whoIsThis();
+    whoIsThis.call(obj1);
+    whoIsThis.apply(obj1);
+    obj1.whoIsThis.call(window);
+    whoIsThis.apply(obj2);
+
+}
+
+function sumAll() {
+    var sum = 0;
+    var i;
+    for (i = 0; i < arguments.length; i++) {
+        sum += arguments[i];
+    }
+    console.log(sum);
+}
+function showNotifacation(name) {
+    this.name = name;
+    console.log(name);
+    var name = "toan cuc";
+    function test() {
+        var name = " cuc bo";
+        console.log(name);
+
+    }
+    test();
+    console.log(name);
+
+}
+function multiClouse(a, b) {
+    return {
+        total: function () {
+            return a + b;
+        },
+        dev: function () {
+            return a * b;
+        }
+
+    }
+}
+
+function tangQua(qua) {
+    console.log("da tang qua"+qua);
+    
+}
+function moHopQua(tangQua) {
+    var qua = "hoa";
+    tangQua(qua);
+    
+}
+function inThongTin(number,callback) {
+    var Thongtin = "";
+    if(number==0) Thongtin = "so 0";
+    else if(number%2==0) Thongtin = "so CHAN";
+    else Thongtin = "so le";
+    if(number<0) Thongtin ="so am";
+    else Thongtin = "so duong";
+    callback(Thongtin);
 }
 
 
