@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LibraryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="BookInfor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="bookID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="bookName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="companyID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="price" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="inDay" Type="nchar" MaxLength="20" Nullable="false" />
+    <Property Name="number" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="review" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="imgae" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="totalnumber" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="classInfor">
+    <Key>
+      <PropertyRef Name="classID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="classID" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="className" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="companyInfor">
+    <Key>
+      <PropertyRef Name="companyID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="companyID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="companyName" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="phoneNumber" Type="nchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UserCard">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userID" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="userName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="ClassID" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Birthday" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="address" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="dateCreatCard" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="dateEnd" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="gender" Type="bit" Nullable="false" />
+    <Property Name="image" Type="nvarchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="userInfor">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="user" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Birthday" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="CMND" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="bit" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_BookInfor_companyInfor">
+    <End Role="companyInfor" Type="Self.companyInfor" Multiplicity="1" />
+    <End Role="BookInfor" Type="Self.BookInfor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="companyInfor">
+        <PropertyRef Name="companyID" />
+      </Principal>
+      <Dependent Role="BookInfor">
+        <PropertyRef Name="companyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserCard_classInfor">
+    <End Role="classInfor" Type="Self.classInfor" Multiplicity="1" />
+    <End Role="UserCard" Type="Self.UserCard" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="classInfor">
+        <PropertyRef Name="classID" />
+      </Principal>
+      <Dependent Role="UserCard">
+        <PropertyRef Name="ClassID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LibraryModelStoreContainer">
+    <EntitySet Name="BookInfor" EntityType="Self.BookInfor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="classInfor" EntityType="Self.classInfor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="companyInfor" EntityType="Self.companyInfor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserCard" EntityType="Self.UserCard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="userInfor" EntityType="Self.userInfor" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BookInfor_companyInfor" Association="Self.FK_BookInfor_companyInfor">
+      <End Role="companyInfor" EntitySet="companyInfor" />
+      <End Role="BookInfor" EntitySet="BookInfor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserCard_classInfor" Association="Self.FK_UserCard_classInfor">
+      <End Role="classInfor" EntitySet="classInfor" />
+      <End Role="UserCard" EntitySet="UserCard" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
