@@ -1,5 +1,0 @@
-- html
-- css
-- bootstrap
-- js
-- jquery
